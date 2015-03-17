@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright © 2015 CYBERSPACE Industries
+  Contacts: http://cyberspace.industries/
+  License: LICENSE.ENG.txt / LICENSE.RUS.txt
+-->
+<addon addon_id="csiXF_kwdMetaTag" title="(CSI/XF/MODULE) Мета-тег &quot;keywords&quot;" version_string="1.0.0" version_id="1" url="http://cyberspace.industries/" install_callback_class="" install_callback_method="" uninstall_callback_class="" uninstall_callback_method="">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <admin_template_modifications/>
+  <code_events/>
+  <code_event_listeners/>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups>
+    <group group_id="csiXF_kwdMetaTag" display_order="99999999" debug_only="0"/>
+    <option option_id="csiXF_kwdMetaTag_keywords" edit_format="textbox" data_type="string" can_backup="1">
+      <default_value></default_value>
+      <edit_format_params>rows=10</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="csiXF_kwdMetaTag" display_order="1"/>
+    </option>
+  </optiongroups>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="option_csiXF_kwdMetaTag_keywords" version_id="1" version_string="1.0.0"><![CDATA[Ключевые слова]]></phrase>
+    <phrase title="option_csiXF_kwdMetaTag_keywords_explain" version_id="1" version_string="1.0.0"><![CDATA[Введите ключевые слова. Рекомендованное количество слов - не более десяти.]]></phrase>
+    <phrase title="option_group_csiXF_kwdMetaTag" version_id="1" version_string="1.0.0"><![CDATA[(CSI/XF/MODULE) Мета-тег "keywords"]]></phrase>
+    <phrase title="option_group_csiXF_kwdMetaTag_description" version_id="1" version_string="1.0.0"><![CDATA[Управление ключевыми словами в мета-теге "keywords". Настройки дополнения.]]></phrase>
+  </phrases>
+  <route_prefixes/>
+  <style_properties/>
+  <templates>
+    <template title="csiXF_kwdMetaTag" version_id="1" version_string="1.0.0"><![CDATA[<xen:if is="{$xenOptions.csiXF_kwdMetaTag_keywords}">
+  <meta name="keywords" content="{$xenOptions.csiXF_kwdMetaTag_keywords}" />
+</xen:if>]]></template>
+  </templates>
+  <public_template_modifications>
+    <modification template="PAGE_CONTAINER" modification_key="csiXF_kwdMetaTag" description="Добавление шаблона &quot;csiXF_kwdMetaTag&quot;" execution_order="99999999" enabled="1" action="str_replace">
+      <find><![CDATA[</head>]]></find>
+      <replace><![CDATA[<xen:include template="csiXF_kwdMetaTag" />
+$0]]></replace>
+    </modification>
+  </public_template_modifications>
+  <bb_code_media_sites/>
+  <bb_codes/>
+</addon>
